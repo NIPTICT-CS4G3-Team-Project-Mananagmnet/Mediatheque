@@ -16,11 +16,20 @@
             <div class="sidebar-header" id="sidebar_header">
                 <div class="img_profile_container">
                     <img class="rounded rounded-circle mx-auto d-block" id="img_profile" src="{{ asset('img/profile_pic.jpg') }}" alt="profile picture">
+                    <div style="width: 100%; height: 100%;">
+
+                        <a href="#" id="camera_icon_container" class="rounded rounded-circle d-block">
+                            <i id="camera_icon" class="fas fa-camera"></i>
+                        </a>
+
+
+                    </div>
+
                 </div>
-                <div class="text-center sideber-text">
-                    <div>Oh Ri Jin</div>
-                    <div>Camerwoman</div>
-                    <div>oh.ri.gin@gmail.com</div>
+                <div class="text-center sideber-text mt-3">
+                    <div style="font-size: 18px; font-weight: bold;">Oh Ri Jin</div>
+                    <div style="font-style: italic;">Camerwoman</div>
+                    <div><u>oh.ri.gin@gmail.com</u></div>
                 </div>
             </div>
 

@@ -50,6 +50,7 @@ a:focus {
 .img_profile_container {
     width: 100%;
     margin-left: -2px;
+    height: 160px;
 }
 .img_profile_container span {
     text-align: center;
@@ -58,6 +59,28 @@ a:focus {
 #img_profile {
     width: 160px;
     margin: auto;
+}
+
+#camera_icon {
+    font-size: 20px;
+}
+
+#camera_icon_container {
+    background-color: #818181;
+    width: fit-content;
+    width: -moz-fit-content;
+    padding: 4px;
+    padding-left: 6px;
+    padding-right: 6px;
+    margin-top: -28px;
+    margin-left: 104px;
+    /*margin-top: 126px;*/
+}
+
+#camera_icon_container:hover {
+    cursor: pointer;
+    background-color: #a8a8a8;
+    color: #fff;
 }
 /* ------------------------------------ */
 
