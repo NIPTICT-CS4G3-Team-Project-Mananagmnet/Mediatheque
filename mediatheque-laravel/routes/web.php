@@ -16,4 +16,4 @@ Route::get('/', function () {
 });
 
 
-
+Route::get('/guest', 'GuestController@index');
