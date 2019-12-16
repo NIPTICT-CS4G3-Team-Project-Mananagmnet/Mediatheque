@@ -13,20 +13,14 @@
     <div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar">
-            <div class="sidebar-header" id="sidebar_header">
-                <div class="img_profile_container">
-                    <img class="rounded rounded-circle mx-auto d-block" id="img_profile" src="{{ asset('img/profile_pic.jpg') }}" alt="profile picture">
-                    <div style="width: 100%; height: 100%;">
-
-                        <a href="#" id="camera_icon_container" class="rounded rounded-circle d-block">
-                            <i id="camera_icon" class="fas fa-camera"></i>
-                        </a>
-
-
-                    </div>
-
+            <div class="sidebar-header">
+                <div class="img_profile_container img-wrapper">
+                    <img class="rounded rounded-circle mx-auto d-block" id="img_profile" src="{{ asset('img/profile_pic_1.png') }}" alt="profile picture">
+                    <a href="#" id="camera_icon_container" class="rounded rounded-circle img-overlay">
+                        <i id="camera_icon" class="fas fa-camera"></i>
+                    </a>
                 </div>
-                <div class="text-center sideber-text mt-3">
+                <div class="text-center sideber-text mt-3 mb-2">
                     <div style="font-size: 18px; font-weight: bold;">Oh Ri Jin</div>
                     <div style="font-style: italic;">Camerwoman</div>
                     <div><u>oh.ri.gin@gmail.com</u></div>
@@ -34,42 +28,25 @@
             </div>
 
             <ul class="list-unstyled components">
+                <li>
+                    <a href="#">Dashboard</a>
+                </li>
+                <li>
+                    <a href="#">Upload Picture</a>
+                </li>
                 <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Setting</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            <a href="#">Home 1</a>
+                            <a href="#">
+
+                                <span>Edit Account</span>
+                            </a>
                         </li>
                         <li>
-                            <a href="#">Home 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 3</a>
+                            <a href="#">Change Password</a>
                         </li>
                     </ul>
-                </li>
-                <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="#">Page 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Portfolio</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
                 </li>
             </ul>
 
