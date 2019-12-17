@@ -18,3 +18,5 @@ Route::get('/', function () {
 Route::get('/admin/layout', function (){
     return view('admin.layout');
 });
+
+Route::get('/guest', 'GuestController@index');
