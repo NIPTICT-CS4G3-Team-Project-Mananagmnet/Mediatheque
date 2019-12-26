@@ -1,0 +1,28 @@
+.p-divider {
+    margin: 0 auto;
+    background: /*#f2720c*/#d33c00;
+    display: block;
+    width: 250px;
+    height: 3px;
+}
+
+.btn-submit {
+	width: 15%;
+    border-radius: 2rem;
+    padding: 1.5%;
+    border: none;
+    cursor: pointer;
+}
+
+.contactmsg-col{
+    border-style: solid;
+    border-color: lightgray;
+    background-color:white;
+    padding: 5%;
+}
+
+.contactinfo-col{
+    color: white;
+    background-color: #8971DC;
+    padding: 5%;
+}

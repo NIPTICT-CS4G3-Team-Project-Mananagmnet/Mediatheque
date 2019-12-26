@@ -1,0 +1,11 @@
+.p-divider {
+    margin: 0 auto;
+    background: /*#f2720c*/#d33c00;
+    display: block;
+    width: 250px;
+    height: 3px;
+}
+
+hr.divider {
+    border: 2px solid #d33c00;
+}

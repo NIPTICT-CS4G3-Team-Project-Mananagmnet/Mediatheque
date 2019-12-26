@@ -20,3 +20,13 @@ Route::get('/admin/layout', function (){
 });
 
 Route::get('/guest', 'GuestController@index');
+
+Route::resource('contact','ContactController');
+
+Route::get('/search/photo', function (){
+    return view('guests.photos.index');
+});
+
+Route::get('/search/album', function (){
+    return view('guests.albums.index');
+});
