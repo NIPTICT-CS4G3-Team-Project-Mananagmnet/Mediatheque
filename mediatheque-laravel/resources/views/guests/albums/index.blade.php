@@ -1,7 +1,7 @@
 @extends('guests.parent')
 
 @section('content')
-<img src="{{URL::asset('img/search-photo.jpg')}}"class="img img-responsive" alt="..." style="width: 100%">
+<!-- <img src="{{URL::asset('img/search-photo.jpg')}}"class="img img-responsive" alt="..." style="width: 100%"> -->
 <link rel="stylesheet" href="{{ asset('css/searchPhoto.css') }}">
 <div class="container">
 	<br><h4 align="center">Photo Albums</h4>
