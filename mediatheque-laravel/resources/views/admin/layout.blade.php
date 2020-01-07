@@ -11,15 +11,24 @@
     <link rel="icon" href="{{ asset('img/system_icon/camera_icon_white.png') }}"/>
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+{{--    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">--}}
     <link rel="stylesheet" href="{{ asset('css/layout_style.css') }}">
     @yield('stylesheet')
 </head>
 <body>
+    <?php
+        if(!session()->has('side_bar')){
+            session(['side_bar'=>'open']);
+        }
+        if(!session()->has('sidebar_dropdown')){
+            session(['sidebar_dropdown'=>'close']);
+        }
+    ?>
 
     <div class="wrapper">
         <!-- Sidebar  -->
-        <nav id="sidebar">
+        <nav class="{{session('side_bar')=='open'?'':'active'}}" id="sidebar">
             <div class="sidebar-header">
                 <div class="img_profile_container img-wrapper">
                     <img class="rounded rounded-circle mx-auto d-block" id="img_profile" src="{{ asset('img/profile_pic_1.png') }}" alt="profile picture">
@@ -52,11 +61,12 @@
                     </a>
                 </li>
                 <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <a id="btnSetting" href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <i class="fas fa-user-cog"></i>
                         Setting
                     </a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
+{{--                    <ul class="{{ session('sidebar_dropdown') === 'close'?'list-unstyled​collapse':'list-unstyled​collapse show' }}" id="homeSubmenu">--}}
+                    <ul class="collapse list-unstyled {{ session('sidebar_dropdown') === 'open'?'show':'' }}" id="homeSubmenu">
                         <li>
                             <a href="#">
                                 <i class="fas fa-user-edit"></i>
@@ -87,7 +97,7 @@
                 <div class="container-fluid">
 
                     <button type="button" id="sidebarCollapse" class="btn btn-info rounded rounded-circle d-flex align-items-center align-self-center">
-                        <i class="fa fa-chevron-right"></i>
+                        <i class="fa fa-chevron-{{ session('side_bar') == 'open'?'left':'right' }}"></i>
                     </button>
                     <div style="margin-left: 5px; font-size: 18px;">Mediatheque</div>
 {{--                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">--}}
@@ -127,6 +137,28 @@
     $(document).ready(function () {
         $('#sidebarCollapse').on('click', function () {
             $('#sidebar').toggleClass('active');
+
+            class_name = $('#sidebar').attr('class');
+            // console.log('class name = ' + class_name)
+            if(class_name === 'active'){
+                $('#sidebarCollapse > i').attr('class', 'fa fa-chevron-right');
+                update_session('side_bar', 'close')
+            }else{
+                $('#sidebarCollapse > i').attr('class', 'fa fa-chevron-left');
+                update_session('side_bar', 'open')
+            }
+
+        });
+
+        $('#btnSetting').on('click', function () {
+
+            class_name = $('#homeSubmenu').attr('class');
+            console.log(class_name)
+            if($('#homeSubmenu').hasClass('show')){
+                update_session('sidebar_dropdown', 'close')
+            }else{
+                update_session('sidebar_dropdown', 'open')
+            }
         });
 
         // button show more info
@@ -145,6 +177,33 @@
                 $('#btnShowMoreInfo > i').attr('class', 'fas fa-caret-down');
             }
         });
+
+        function update_session(session_name, session_value){
+            console.log("session name : " + session_name)
+            console.log("session value : " + session_value)
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: '/update_session',
+                type: 'post',
+                data: {
+                    session_name:session_name,
+                    session_value:session_value,
+                },
+                success:function (data) {
+                    console.log(data)
+                },
+                error: function (data) {
+                    console.log('error retrieving data')
+                }
+            });
+        }
+
+
+
         @yield('script')
     });
 </script>

@@ -99,14 +99,16 @@ a:focus {
     padding-left: 6px;
     padding-right: 6px;
     height: 32px;
-    margin-left: 118px;
-    margin-top: 128px;
+    margin-left: 140px;
+    margin-top: 126px;
 }
 
 #camera_icon_container:hover {
     cursor: pointer;
-    background-color: #a8a8a8;
-    color: #fff;
+    /*background-color: #a8a8a8;*/
+    /*color: #fff;*/
+    background-color: #fff;
+    color: #000;
 }
 
 .img-overlay {
