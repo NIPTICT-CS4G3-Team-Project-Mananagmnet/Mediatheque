@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/layout_style.css') }}">
     <title>Document</title>
@@ -29,22 +30,34 @@
 
             <ul class="list-unstyled components">
                 <li>
-                    <a href="#">Dashboard</a>
+                    <a href="#">
+                        <i class="material-icons">dashboard</i>
+                        <span>Dashboard</span>
+                    </a>
                 </li>
                 <li>
-                    <a href="#">Upload Picture</a>
+                    <a href="#">
+                        <i class="material-icons">cloud_upload</i>
+                        <span>Upload Picture</span>
+                    </a>
                 </li>
                 <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Setting</a>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fas fa-user-cog"></i>
+                        Setting
+                    </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
                             <a href="#">
-
+                                <i class="fas fa-user-edit"></i>
                                 <span>Edit Account</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#">Change Password</a>
+                            <a href="#">
+                                <i class="fas fa-key"></i>
+                                <span>Change Password</span>
+                            </a>
                         </li>
                     </ul>
                 </li>
@@ -65,7 +78,6 @@
 
                     <button type="button" id="sidebarCollapse" class="btn btn-info">
                         <i class="fas fa-align-left"></i>
-                        <span>Toggle Sidebar</span>
                     </button>
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-align-justify"></i>

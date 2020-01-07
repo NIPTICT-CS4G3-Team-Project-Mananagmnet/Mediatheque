@@ -40,6 +40,11 @@ a:focus {
 ----------------------------------------------------- */
 
 /* Custom style */
+.material-icons {
+    vertical-align: middle;
+    margin-bottom: 5px;
+}
+
 .sidebar-header {
     border-bottom: 2px solid #828282;
     margin-bottom: 5px;
