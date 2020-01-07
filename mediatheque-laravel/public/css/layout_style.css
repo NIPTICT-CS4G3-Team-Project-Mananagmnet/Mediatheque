@@ -19,7 +19,8 @@ a:focus {
     border: none;
     border-radius: 0;
     margin-bottom: 40px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    /*box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);*/
+    /*z-index: -2;*/
 }
 
 .navbar-btn {
@@ -40,13 +41,26 @@ a:focus {
 ----------------------------------------------------- */
 
 /* Custom style */
+#btnShowMoreInfo:hover {
+    color: #ffffff;
+}
+
+#sidebarCollapse {
+    position: absolute;
+    left: 0;
+    z-index: 10;
+    width: 27px;
+    height: 27px;
+    margin-left: -14px;
+}
+
 .material-icons {
     vertical-align: middle;
     margin-bottom: 5px;
 }
 
 .sidebar-header {
-    border-bottom: 2px solid #828282;
+    /*border-bottom: 2px solid #828282;*/
     margin-bottom: 5px;
 }
 .sideber-text {
@@ -109,6 +123,7 @@ a:focus {
     background: #434343;
     color: #fff;
     transition: all 0.3s;
+    z-index: 999;
 }
 
 #sidebar.active {
@@ -116,13 +131,12 @@ a:focus {
 }
 
 #sidebar .sidebar-header {
-    padding: 20px;
+    margin-top: 20px;
     background: #434343;
 }
 
 #sidebar ul.components {
-    padding: 20px 0;
-    /*border-bottom: 1px solid #828282;*/
+    margin: 20px 0;
 }
 
 #sidebar ul li a {
@@ -189,7 +203,7 @@ a.article:hover {
 
 #content {
     width: 100%;
-    padding: 20px;
+    /*padding: 20px;*/
     min-height: 100vh;
     transition: all 0.3s;
 }
