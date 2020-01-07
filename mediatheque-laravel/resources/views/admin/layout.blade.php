@@ -6,12 +6,14 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mediatheque</title>
+    <link rel="icon" href="{{ asset('img/system_icon/camera_icon_white.png') }}"/>
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/layout_style.css') }}">
-    <title>Document</title>
+    @yield('stylesheet')
 </head>
 <body>
 
@@ -110,8 +112,10 @@
 {{--                    </div>--}}
                 </div>
             </nav>
-
+            <div class="container-fluid">
+                @yield('content')
             </div>
+        </div>
     </div>
 
 
@@ -140,11 +144,11 @@
                 $('#emailInfo').attr('style', 'display: none;');
                 $('#btnShowMoreInfo > i').attr('class', 'fas fa-caret-down');
             }
-
-
         });
+        @yield('script')
     });
 </script>
+@yield('javascript')
 
 </body>
 </html>
