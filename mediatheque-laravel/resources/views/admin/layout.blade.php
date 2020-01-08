@@ -55,7 +55,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a id="btnUpload">
                         <i class="material-icons">cloud_upload</i>
                         <span>Upload Picture</span>
                     </a>
@@ -100,26 +100,6 @@
                         <i class="fa fa-chevron-{{ session('side_bar') == 'open'?'left':'right' }}"></i>
                     </button>
                     <div style="margin-left: 5px; font-size: 18px;">Mediatheque</div>
-{{--                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">--}}
-{{--                        <i class="fas fa-align-justify"></i>--}}
-{{--                    </button>--}}
-{{--                    <div class="collapse navbar-collapse" id="navbarSupportedContent">--}}
-{{--                        <ul class="nav navbar-nav ml-auto">--}}
-{{--                            <li class="nav-item active">--}}
-{{--                                <a class="nav-link" href="#">Page</a>--}}
-{{--                            </li>--}}
-{{--                            <li class="nav-item">--}}
-{{--                                <a class="nav-link" href="#">Page</a>--}}
-{{--                            </li>--}}
-{{--                            <li class="nav-item">--}}
-{{--                                <a class="nav-link" href="#">Page</a>--}}
-{{--                            </li>--}}
-{{--                            <li class="nav-item">--}}
-{{--                                <a class="nav-link" href="#">Page</a>--}}
-{{--                            </li>--}}
-{{--                        </ul>--}}
-
-{{--                    </div>--}}
                 </div>
             </nav>
             <div class="container-fluid">
@@ -129,11 +109,12 @@
     </div>
 
 
-<script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
-<script src="{{ asset('js/popper.js') }}"></script>
-<script src="{{ asset('js/bootstrap.min.js') }}"></script>
-<script src="https://kit.fontawesome.com/8d4428d323.js"></script>
-<script type="text/javascript">
+    <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
+    <script src="{{ asset('js/popper.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://kit.fontawesome.com/8d4428d323.js"></script>
+    <script type="text/javascript">
     $(document).ready(function () {
         $('#sidebarCollapse').on('click', function () {
             $('#sidebar').toggleClass('active');
@@ -202,6 +183,42 @@
             });
         }
 
+        $('#btnUpload').click(function () {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.value) {
+                    swalWithBootstrapButtons.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                    )
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire(
+                        'Cancelled',
+                        'Your imaginary file is safe :)',
+                        'error'
+                    )
+                }
+            })
+        });
 
 
         @yield('script')
