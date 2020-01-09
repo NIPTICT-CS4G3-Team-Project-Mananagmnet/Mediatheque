@@ -55,7 +55,7 @@
                     </a>
                 </li>
                 <li>
-                    <a id="btnUpload">
+                    <a id="btnUpload" data-toggle="modal" data-target="#chooseUploadOptionModal">
                         <i class="material-icons">cloud_upload</i>
                         <span>Upload Picture</span>
                     </a>
@@ -103,6 +103,30 @@
                 </div>
             </nav>
             <div class="container-fluid">
+                <!-- choose upload option Modal -->
+                <div class="modal fade" id="chooseUploadOptionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Upload Option</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                How many pictures you want to upload?
+                            </div>
+                            <div class="modal-footer align-self-center">
+                                <button type="button" class="btn btn-primary">Single Picture</button>
+                                <a href="/admin/upload_multiple_pictures">
+                                    <button type="button" class="btn btn-primary">Multiple Pictures</button>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 @yield('content')
             </div>
         </div>
@@ -184,40 +208,7 @@
         }
 
         $('#btnUpload').click(function () {
-            const swalWithBootstrapButtons = Swal.mixin({
-                customClass: {
-                    confirmButton: 'btn btn-success',
-                    cancelButton: 'btn btn-danger'
-                },
-                buttonsStyling: false
-            })
 
-            swalWithBootstrapButtons.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'Yes, delete it!',
-                cancelButtonText: 'No, cancel!',
-                reverseButtons: true
-            }).then((result) => {
-                if (result.value) {
-                    swalWithBootstrapButtons.fire(
-                        'Deleted!',
-                        'Your file has been deleted.',
-                        'success'
-                    )
-                } else if (
-                    /* Read more about handling dismissals below */
-                    result.dismiss === Swal.DismissReason.cancel
-                ) {
-                    swalWithBootstrapButtons.fire(
-                        'Cancelled',
-                        'Your imaginary file is safe :)',
-                        'error'
-                    )
-                }
-            })
         });
 
 
