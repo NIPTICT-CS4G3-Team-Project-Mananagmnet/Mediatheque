@@ -9,3 +9,12 @@
 hr.divider {
     border: 2px solid #d33c00;
 }
+
+.search-field {
+    width: auto;
+    height: 32px;
+    border-radius: 1rem;
+    /* background-color: blueviolet;
+    color: white; */
+    text-align: center;
+}
