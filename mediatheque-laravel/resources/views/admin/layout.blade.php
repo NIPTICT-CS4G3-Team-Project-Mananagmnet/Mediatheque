@@ -21,9 +21,9 @@
                     </a>
                 </div>
                 <div class="text-center sideber-text mt-3 mb-2">
-                    <div style="font-size: 18px; font-weight: bold;">Oh Ri Jin</div>
-                    <div style="font-style: italic;">Camerwoman</div>
-                    <div><u>oh.ri.gin@gmail.com</u></div>
+                    <div style="font-size: 18px; font-weight: bold;">{{ Auth::user()->name }}</div>
+                    <div style="font-style: italic;">{{ Auth::user()->position }}</div>
+                    <div><u>{{ Auth::user()->email }}</u></div>
                 </div>
             </div>
 
@@ -52,7 +52,13 @@
 
             <ul class="list-unstyled CTAs">
                 <li>
-                    <a href="#" class="article"><i class="fas fa-sign-out-alt"></i> Sign out</a>
+                    <a href="{{ route('logout') }} class="article" onclick="event.preventDefault(); 
+                        document.getElementById('logout-form').submit();">
+                        <i class="fas fa-sign-out-alt"></i> Sign out
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                 </li>
             </ul>
         </nav>
