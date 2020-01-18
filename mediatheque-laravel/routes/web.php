@@ -20,3 +20,9 @@ Route::get('/admin/layout', function (){
 });
 
 Route::get('/guest', 'GuestController@index');
+
+Route::get('/admin/upload_multiple_pictures', function (){
+    return view('admin.upload_multiple');
+});
+
+Route::post('/update_session', 'Controller@updateSession');
