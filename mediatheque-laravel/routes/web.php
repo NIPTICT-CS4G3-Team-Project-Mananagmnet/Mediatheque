@@ -25,4 +25,6 @@ Route::get('/admin/upload_multiple_pictures', function (){
     return view('admin.upload_multiple');
 });
 
+Route::post('/admin/upload_multiple_pictures', 'AdminController@uploadMultiplePictures');
+
 Route::post('/update_session', 'Controller@updateSession');
