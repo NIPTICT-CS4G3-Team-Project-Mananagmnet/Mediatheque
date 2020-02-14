@@ -15,18 +15,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin/layout', function (){
+Route::get('/admin/layout', function () {
     return view('admin.layout');
 });
 
 Route::get('/guest', 'GuestController@index');
 
-Route::resource('contact','ContactController');
+Route::resource('contact', 'ContactController');
 
-Route::get('/search/photo', function (){
+Route::get('/search/photo', function () {
     return view('guests.photos.index');
 });
 
-Route::get('/search/album', function (){
+Route::get('/search/album', function () {
     return view('guests.albums.index');
 });
+
+// Route::get('/photos', 'AlbumController@viewPhotos');
+
+// Route::get('search/{id}', function ($id) {
+
+//     return $id;
+// });
+
