@@ -30,9 +30,17 @@ Route::group(['middleware' => 'auth'], function () {
         return view('admin.layout');
     });
 });
-Route::resource('profile', 'ProfileController');
+// Route::resource('profile', 'ProfileController');
 
-Route::get('/profile/edit', function (){
+Route::get('/account/edit', function (){
     return view('profile.edit');
 });
-// Route::Post('/{profile_id}/update_profile', 'ProfileController@update');
+
+Route::post('/{profile_id}/profile_update', 'ProfileController@update');
+Route::post('/admin/{id}/submit_profile','ProfileController@submit_image');
+
+Route::get('/admin/upload_multiple_pictures', function (){
+    return view('admin.upload_multiple');
+});
+
+Route::post('/update_session', 'Controller@updateSession');

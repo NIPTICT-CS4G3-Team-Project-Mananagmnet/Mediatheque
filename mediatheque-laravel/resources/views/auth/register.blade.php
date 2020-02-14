@@ -54,26 +54,12 @@
                                 <label for="position" class="col-md-4 col-form-label text-md-right">{{ __('Position') }}</label>
 
                                 <div class="col-md-6">
-                                    <input type="text" name="position" class="form-control" id="position" value="{{ old('position') }}" autocomplete="off" >
+                                    <textarea type="text" rows="3" name="position" class="form-control" id="position" value="{{ old('position') }}" autocomplete="off" ></textarea>
+                                    
                                 </div>
                         </div>
 
-                        <div class="form-group row">
-                                <label for="photo" class="col-md-4 col-form-label text-md-right">{{ __('Photo') }}</label>
-
-                                <div class="col-md-6">
-                                    <div class="avatar" id="avatar">
-                                        <img id="photo"  src="{{asset('img/profile_pic/male.jpg')}}" alt="">
-                                        <div class="avatar1">
-                                            <p class="text-center text-light">Choose</p>
-                                            <input type="file" id="photoInput" name="photo">
-<!-- {{--                                            <input type="file" id="photoInput" name="photo" onchange="document.getElementById('photo').src = window.URL.createObjectURL(this.files[0])">--}} -->
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <input type="hidden" name="cropedImage" value=""/>
-                            </div>
+                       
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>

@@ -60,9 +60,9 @@ class ProfileController extends Controller
      */
     public function edit($id)
     {
-        $profiles = User::find($id);
+        $user = User::find($id);
 
-        return view('profile.edit', compact('profiles'));
+        return view('profile.edit', compact('user'));
     }
 
     /**
@@ -82,20 +82,22 @@ class ProfileController extends Controller
     
           ]);
     
-          $profiles = User::find($id);
-          $profiles->name = $request->get('name');
-          $profiles->email = $request->get('email');
-          $profiles->position = $request->get('position');
+          $user = User::find($id);
+          $user->name = $request->get('name');
+          $user->email = $request->get('email');
+          $user->position = $request->get('position');
 
           if($request->hasFile('photo')){
-            $profile_user = $request->file('photo');
-            $fileName = '/img/profile_user/'.time().'.'.$profile_user->getClientOriginalExtension();
-            Image::make($profile_user)->resize(150,150)->save(public_path($fileName));
-            $profiles->photo=$fileName;
+            $file = $request->file('photo');
+            $imageName = time().'.'.$file->extension();
+            $request->photo->move(public_path('uploads'), $imageName);
+            $user->photo=$imageName;
           }
-          $profiles->save();
+          
+          $user->save();
     
-          return redirect('/profile')->with('success', 'Profile has been updated');
+          return redirect('/admin/layout');
+        // return view('admin/layout');
     }
 
     /**
@@ -107,5 +109,27 @@ class ProfileController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function submit_image(Request $request, $id)
+    {
+        $request->validate([
+            'submmit_image'=> '',
+    
+        ]);
+
+        $user = User::find($id);
+        
+        if($request->hasFile('submit_image')){
+            $file = $request->file('submit_image');
+            $imageName = time().'.'.$file->extension();
+            $request->submit_image->move(public_path('uploads'), $imageName);
+            $user->photo=$imageName;
+            
+        }
+          
+        $user->save();
+
+        return back();
     }
 }
