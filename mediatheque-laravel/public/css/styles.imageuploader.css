@@ -614,3 +614,10 @@ h6 {
   color: #969696;
   font-size: 0.9em;
   padding: 0.5em; }
+
+/* custom css */
+.align_middle_of_html {
+    display: table-cell;
+    vertical-align: middle;
+}
+/**************/

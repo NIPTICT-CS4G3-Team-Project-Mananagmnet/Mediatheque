@@ -55,6 +55,18 @@
                     </a>
                 </li>
                 <li>
+                    <a id="btnUpload">
+                        <i class="fas fa-images"></i>
+                        <span>Manage Album</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="btnUpload">
+                        <i class="fas fa-image"></i>
+                        <span>Manage Picture</span>
+                    </a>
+                </li>
+                <li>
                     <a id="btnUpload" data-toggle="modal" data-target="#chooseUploadOptionModal">
                         <i class="material-icons">cloud_upload</i>
                         <span>Upload Picture</span>
