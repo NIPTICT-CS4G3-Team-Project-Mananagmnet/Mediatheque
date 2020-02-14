@@ -1,10 +1,8 @@
 @extends('guests.parent')
 
 @section('content')
-<title>Photo Alums</title>
-<!-- <img src="{{URL::asset('img/search-photo.jpg')}}"class="img img-responsive" alt="..." style="width: 100%"> -->
+<title>Photo Albums</title>
 <link rel="stylesheet" href="{{ asset('css/searchPhoto.css') }}">
-
 
 <div class="container">
 	<br><h5 align="center">Photo Albums</h5>
@@ -20,7 +18,7 @@
 						<?php 
 				          	$start_date = 1;
 							$end_date   = 31;
-							  echo '<option value="0">Day</option>';
+							echo '<option value="0">Day</option>';
 				          	for( $j=$start_date; $j<=$end_date; $j++ ) {
 				            echo '<option value='.$j.'>'.$j.'</option>';
 				          	}
@@ -32,12 +30,12 @@
 						@php
                             $months = ['Month','January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
                             $current_month = date('m');
-                            for($i = 1; $i <= 12; $i ++){
-                                if($i == $current_month){
-                                    echo '<option value="'.$i.'" selected>'.$months[$i-1].'</option>';
-                                    continue;
-                                }
-                                echo '<option value="'.$i.'">'.$months[$i-1].'</option>';
+                            for($i = 0; $i <= 12; $i ++){
+                                // if($i == $current_month){
+                                //     echo '<option value="'.$i.'" selected>'.$months[$i].'</option>';
+                                //     continue;
+                                // }
+                                echo '<option value="'.$i.'">'.$months[$i].'</option>';
                             }
                         @endphp
 					</select>
@@ -45,9 +43,10 @@
 				<div class="col-lg-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
 					<select id="end-year" class="search-field">
 						@php
-                            echo '<option value="'.date('Y').'">'.date('Y').'</option>';
-                            for($i = date('Y') - 1 ; $i >= 2000; $i--){
-                                echo '<option value="'.$i.'">'.$i.'</option>';
+							echo '<option value="0">Year</option>';
+							echo '<option value="'.date('Y').'" selected>'.date('Y').'</option>';
+                            for($i = date('Y') - 1 ; $i >= date('Y')-10; $i--){
+								echo '<option value="'.$i.'">'.$i.'</option>';
                             }
                         @endphp
 					</select>
@@ -77,12 +76,12 @@
 						@php
                             $months = ['Month','January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
                             $current_month = date('m');
-                            for($i = 1; $i <= 12; $i ++){
-                                if($i == $current_month){
-                                    echo '<option value="'.$i.'" selected>'.$months[$i-1].'</option>';
-                                    continue;
-                                }
-                                echo '<option value="'.$i.'">'.$months[$i-1].'</option>';
+                            for($i = 0; $i <= 12; $i ++){
+                                // if($i == $current_month){
+                                //     echo '<option value="'.$i.'" selected>'.$months[$i].'</option>';
+                                //     continue;
+                                // }
+                                echo '<option value="'.$i.'">'.$months[$i].'</option>';
                             }
                         @endphp
 					</select>
@@ -90,8 +89,9 @@
 				<div class="col-lg-3 col-md-2 col-sm-3 col-xs-3">
 					<select id="end-year" class="search-field">
 						@php
-                            echo '<option value="'.date('Y').'">'.date('Y').'</option>';
-                            for($i = date('Y') - 1 ; $i >= 2000; $i--){
+							echo '<option value="0">Year</option>';
+                            echo '<option value="'.date('Y').'" selected>'.date('Y').'</option>';
+                            for($i = date('Y') - 1 ; $i >= date('Y')-10; $i--){
                                 echo '<option value="'.$i.'">'.$i.'</option>';
                             }
                         @endphp
@@ -110,43 +110,45 @@
 		</div>
 	</div><br>
 	<div class="row">
+		@foreach ($all_data as $data)
 		<div class="col-md-4 img-portfolio">
-        	<h6><a href="">Annual Trip</a> </h6>
-			<a href=""><img src="{{URL::asset('img/albums/trip.jpg')}}"class="img img-responsive" alt="..." style="width: 100%"></a><br>
-			{{-- <div class="row">
-				<div class="col-md-6">
-					<p>09/Jan/2018</p>  
-				</div>
-				<div class="col-md-6" style="text-align:right; text-size:12px">
-					<p>20 items</p>  
-				</div>
-			</div> --}}
+			
+			<h6><a href="">{{$data[0]}}</a> </h6>
+			<a href=""><img src="{{$data[2]}}"" alt="..." style="width: 100%"></a><br>
+			<div class="text-block">{{$data[1]}} items</div>
+			
 		</div>
+		@endforeach
 		
-        <div class="col-md-4 img-portfolio">
+        {{-- <div class="col-md-4 img-portfolio">
         	<h6><a href="">Seminar</a> </h6>
-            <a href=""><img src="{{URL::asset('img/albums/seminar.jpg')}}"class="img img-responsive" alt="..." style="width: 100%"></a>            
+			<a href=""><img src="{{URL::asset('img/albums/seminar.jpg')}}"class="img img-responsive" alt="..." style="width: 100%"></a>
+			<div class="text-block">26 items</div>            
         </div>
         <div class="col-md-4 img-portfolio">
         	<h6><a href="">Charity</a></h6>
-            <a href=""><img src="{{URL::asset('img/albums/charity.jpg')}}"class="img img-responsive" alt="..." style="width: 100%"></a>
-        </div>
+			<a href=""><img src="{{URL::asset('img/albums/charity.jpg')}}"class="img img-responsive" alt="..." style="width: 100%"></a>
+			<div class="text-block">30 items</div>
+        </div> --}}
     </div><br>
 
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-md-4 img-portfolio">
         	<h6><a href="">Farewell Party</a></h6>
-            <a href=""><img src="{{URL::asset('img/albums/farewell.jpg')}}"class="img img-responsive" alt="..." style="width: 100%"></a>
+			<a href=""><img src="{{URL::asset('img/albums/farewell.jpg')}}"class="img img-responsive" alt="..." style="width: 100%"></a>
+			<div class="text-block">32 items</div>
         </div>
         <div class="col-md-4 img-portfolio">
         	<h6><a href="">Gala Dinner</a></h6>
-            <a href=""><img src="{{URL::asset('img/albums/gala_dinner.jpg')}}"class="img img-responsive" alt="..." style="width: 100%"></a>
+			<a href=""><img src="{{URL::asset('img/albums/gala_dinner.jpg')}}"class="img img-responsive" alt="..." style="width: 100%"></a>
+			<div class="text-block">28 items</div>
         </div>
         <div class="col-md-4 img-portfolio">
         	<h6><a href="">Christmas Party</a></h6>
-            <a href=""><img src="{{URL::asset('img/albums/christmas_party.jpg')}}"class="img img-responsive" alt="..." style="width: 100%"></a>
+			<a href=""><img src="{{URL::asset('img/albums/christmas_party.jpg')}}"class="img img-responsive" alt="..." style="width: 100%"></a>
+			<div class="text-block">30 items</div>
         </div>
-    </div>
+    </div> --}}
 </div>
 <br>
 
