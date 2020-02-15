@@ -17,6 +17,5 @@ class Controller extends BaseController
         $session_value = $request->session_value;
         session([$session_name=>$session_value]);
         return json_encode([$session_name=>$session_value]);
-//        return json_encode(['session_name'=>$request->session_value]);
     }
 }

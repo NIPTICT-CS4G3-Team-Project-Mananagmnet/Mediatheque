@@ -4,6 +4,10 @@
 
 /*@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";*/
 
+#btnUpload:hover {
+    cursor: pointer;
+}
+
 
 a,
 a:hover,
@@ -18,7 +22,7 @@ a:focus {
     background: #fff;
     border: none;
     border-radius: 0;
-    margin-bottom: 40px;
+    margin-bottom: 16px;
     /*box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);*/
     /*z-index: -2;*/
 }

@@ -14,15 +14,33 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
 Route::get('/admin/layout', function (){
     return view('admin.layout');
 });
+Route::get('/home',function(){
+    return redirect('/admin/layout');
+  })->name('home');
 
 Route::get('/guest', 'GuestController@index');
 
-Route::get('/admin/upload', function (){
-    return view('admin.upload');
+Auth::routes();
+//  Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/admin/layout', function (){
+        return view('admin.layout');
+    });
+});
+// Route::resource('profile', 'ProfileController');
+
+Route::get('/account/edit', function (){
+    return view('profile.edit');
+});
+
+Route::post('/{profile_id}/profile_update', 'ProfileController@update');
+Route::post('/admin/{id}/submit_profile','ProfileController@submit_image');
+
+Route::get('/admin/upload_multiple_pictures', function (){
+    return view('admin.upload_multiple');
 });
 
 Route::post('/update_session', 'Controller@updateSession');
