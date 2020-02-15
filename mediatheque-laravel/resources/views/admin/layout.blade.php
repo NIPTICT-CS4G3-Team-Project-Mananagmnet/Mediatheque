@@ -117,7 +117,11 @@
                                 How many pictures you want to upload?
                             </div>
                             <div class="modal-footer align-self-center">
-                                <button type="button" class="btn btn-primary">Single Picture</button>
+
+                                <a href='/admin/upload_single_picture'>
+                                    <button  type="button" class="btn btn-primary">Single Picture</button>
+                                </a>
+                                
                                 <a href="/admin/upload_multiple_pictures">
                                     <button type="button" class="btn btn-primary">Multiple Pictures</button>
                                 </a>
