@@ -90,7 +90,8 @@ class ProfileController extends Controller
           if($request->hasFile('photo')){
             $file = $request->file('photo');
             $imageName = time().'.'.$file->extension();
-            $request->photo->move(public_path('uploads'), $imageName);
+            $request->photo->move(public_path('img/profile_pic'), $imageName);
+            $imageName = 'img/profile_pic/'.$imageName;
             $user->photo=$imageName;
           }
           
@@ -123,7 +124,8 @@ class ProfileController extends Controller
         if($request->hasFile('submit_image')){
             $file = $request->file('submit_image');
             $imageName = time().'.'.$file->extension();
-            $request->submit_image->move(public_path('uploads'), $imageName);
+            $request->submit_image->move(public_path('img/profile_pic'), $imageName);
+            $imageName = 'img/profile_pic/'.$imageName;
             $user->photo=$imageName;
             
         }

@@ -45,7 +45,7 @@
                             <div class="form-group">
                                 <label for="photo">{{ __('Photo') }}</label>
                                 <div class="avatar" id="avatar">
-                                    <img id="photo"  src="{{asset('uploads/'.Auth::user()->photo)}}" alt="">
+                                    <img id="photo"  src="{{asset(Auth::user()->photo)}}" alt="">
                                     <div class="avatar1">
                                         <p class="text-center text-light">Choose</p>
 <!-- {{--                                        <input type="file" id="photoInput" name="photo">--}} -->
@@ -58,7 +58,7 @@
 
                       
 
-                        <button type="submit" class="btn btn-primary float-right">Upload</button>
+                        <button type="submit" class="btn btn-primary float-right">Save</button>
                         {{--                                </div>--}}
                     </form>
                     <div>
