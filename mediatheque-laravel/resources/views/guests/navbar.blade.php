@@ -12,13 +12,13 @@
 
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link text-white" href="#">Search Images</a>
+                <a class="nav-link text-white" href="/photo">Search Images</a>
             </li>
             <li class="nav-item ml-3">
-                <a class="nav-link text-white" href="#">Albums</a>
+                <a class="nav-link text-white" href="/album">Albums</a>
             </li>
             <li class="nav-item ml-3">
-                <a class="nav-link text-white" href="#">Contact Us</a>
+                <a class="nav-link text-white" href="/contact">Contact Us</a>
             </li>
         </ul>
     </div>
