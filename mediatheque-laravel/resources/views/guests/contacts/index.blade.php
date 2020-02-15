@@ -2,6 +2,7 @@
 
 @section('content')
 
+<title>Contact Us</title>
 <img src="{{URL::asset('img/contact.jpg')}}"class="img img-responsive" alt="..." style="width: 100%">
 <link rel="stylesheet" href="{{ asset('css/contact_us.css') }}">
 <div class="container">

@@ -2,9 +2,11 @@
 
 @section('content')
 
+<title>Searching Photo</title>
 <link rel="stylesheet" href="{{ asset('css/searchPhoto.css') }}">
 <div class="container">
-  <br><h4 align="center">Photo Seaching</h4>
+  <br>
+  <h4 align="center">Photo Seaching</h4>
   <div class="p-divider"></div><br>
   <div class="row">
     <div class="col-lg-5 col-md-5">
@@ -125,6 +127,21 @@
     <div class="col-lg-12">
       <h6>Match Found</h6>
       <hr class="divider">
+      <div class="row">
+        <div class="col-md-4 col-offset-4">
+          <form class="form-inline btn_sumit">
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search">
+          </form>
+        </div>
+      </div><br>
+      <div class="row">
+        @foreach ($all_data as $data)
+        <div class="col-md-4 img-portfolio" style="margin-bottom: 30px;">
+          <img src="{{$data[0]}}" alt=" ..." style="width: 100%"><br>
+        </div>
+        @endforeach
+      </div>
     </div>
   </div>
 </div>
