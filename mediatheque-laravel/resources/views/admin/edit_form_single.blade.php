@@ -14,7 +14,7 @@
                         <div class="col-md-4">
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addNewCategory">
-                                Add New
+                                Add New Category
                             </button>
                             <!-- Modal -->
                             <div class="modal fade" id="addNewCategory" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -44,9 +44,7 @@
                             </div>
               
                         </div>
-                    </div>
-
-                   
+                    </div>    
     
         <form action="/admin/update_image/{{ $photos['id'] }}" method="POST" enctype="multipart/form-data" id="upload_single_form" onclick="clear()">
             @csrf

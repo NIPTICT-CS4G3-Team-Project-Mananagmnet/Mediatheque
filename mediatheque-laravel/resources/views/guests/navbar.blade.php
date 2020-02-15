@@ -7,15 +7,15 @@
 
     <div class="collapse navbar-collapse text-center ml-5" id="collapse_target">
         <a class="navbar-brand" href="#">
-            <img src="http://placehold.it/150x50?text=Logo" alt="">
+            <img src="{{ asset('img/logo.png') }}" alt="" style="width: 150px; height: 50px">
         </a>
 
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link text-white" href="/search/photo">Search Images</a>
+                <a class="nav-link text-white" href="/photo">Photos</a>
             </li>
             <li class="nav-item ml-3">
-                <a class="nav-link text-white" href="/search/album">Albums</a>
+                <a class="nav-link text-white" href="/album">Albums</a>
             </li>
             <li class="nav-item ml-3">
                 <a class="nav-link text-white" href="/contact">Contact Us</a>

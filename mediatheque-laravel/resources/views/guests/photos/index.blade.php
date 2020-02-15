@@ -138,7 +138,7 @@
       <div class="row">
         @foreach ($all_data as $data)
         <div class="col-md-4 img-portfolio" style="margin-bottom: 30px;">
-          <img src="{{$data[0]}}" alt=" ..." style="width: 100%"><br>
+          <img src="{{$data[0]}}" alt=" ..." style="width: 100%; height: 233px;"><br>
         </div>
         @endforeach
       </div>

@@ -19,12 +19,12 @@ class SingleFormController extends Controller
         $input = $req->all();
 
         $req->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,jfif,png,jpg,gif,svg|max:2048',
         ]);
   
         $imageName = time().'.'.$req->image->extension();  
         
-        $req->image->move(public_path('uploads'), $imageName);
+        $req->image->move(public_path('img/albums'), $imageName);
 
         $album = $input["album"];
         $name = $input["name_pic"];
@@ -41,9 +41,8 @@ class SingleFormController extends Controller
         $album_id = DB::table('albums')->where('album',$album)->first()->id;
         $category_id = DB::table('categories')->where('category',$category)->first()->id;
 
-
         Photos::create([
-            "path" => $imageName,
+            "path" => 'img/albums/'.$imageName,
             "name" => $name,
             "date" => $date,
             "description" => $des,
@@ -54,7 +53,7 @@ class SingleFormController extends Controller
         $photos = Photos::all();
 
 
-        return redirect('/admin/image_page');
+        return redirect('/photo');
 
     }
 
@@ -97,7 +96,7 @@ class SingleFormController extends Controller
             "path"=>$photos->path
        );
 
-       print_r($data);
+      
         
         // echo $photos->id;
 
@@ -145,9 +144,9 @@ class SingleFormController extends Controller
 
             $imageName = time().'.'.$file->extension();  
         
-            $req->image->move(public_path('uploads'), $imageName);
+            $req->image->move(public_path('img/albums'), $imageName);
 
-            $photos->path = $imageName;
+            $photos->path = 'img/albums/'.$imageName;
 
         }
 
@@ -156,7 +155,8 @@ class SingleFormController extends Controller
         $all_photo = Photos::all();
 
 
-        return view('admin/image_page')->with('photos',$all_photo);
+        // return view('admin/image_page')->with('photos',$all_photo);
+        return redirect('/photo');
     }
 
 }

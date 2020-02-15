@@ -9,6 +9,10 @@ class Album extends Model
     protected $table = 'albums';
     protected $fillable =[
     	'album',
-    	'description',
+        'description',
     ];
+
+    public function photos(){
+        return $this->hasMany(Photos::class);
+    }
 }
