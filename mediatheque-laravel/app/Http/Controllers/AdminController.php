@@ -19,6 +19,8 @@ class AdminController extends Controller
         $imageName = str_random(10).'.'.'png';
         \File::put(public_path(). '/' . $imageName, base64_decode($image));
 
+        
+
 
     }
 

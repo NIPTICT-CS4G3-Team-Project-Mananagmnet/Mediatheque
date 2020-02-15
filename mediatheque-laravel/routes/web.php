@@ -14,7 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/admin/layout', function (){
+
+Route::get('/admin/layout', function () {
     return view('admin.layout');
 });
 Route::get('/home',function(){
@@ -38,6 +39,17 @@ Route::get('/account/edit', function (){
 
 Route::post('/{profile_id}/profile_update', 'ProfileController@update');
 Route::post('/admin/{id}/submit_profile','ProfileController@submit_image');
+Route::resource('/contact','ContactController');
+
+// Route::get('/search/photo', function () {
+//     return view('guests.photos.index');
+// });
+
+// Route::get('/search/album', function (){
+//     return view('guests.albums.index');
+// });
+Route::resource('/album','AlbumController');
+Route::resource('/photo','PhotoController');
 
 Route::get('/admin/upload_multiple_pictures', function (){
     return view('admin.upload_multiple');

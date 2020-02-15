@@ -1,4 +1,4 @@
-<div class="container-fluid w-full bg-dark fixed-bottom p-md-2" style="height:150px;">
+<div class="container-fluid w-full bg-dark static-bottom p-md-2" style="height:150px;">
 
     <div class="text-center center-block" style="margin-top:20px;">
         <!--Facebook-->
