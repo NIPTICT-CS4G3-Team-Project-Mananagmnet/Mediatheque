@@ -19,7 +19,7 @@ class SingleFormController extends Controller
         $input = $req->all();
 
         $req->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,jfif,png,jpg,gif,svg|max:2048',
         ]);
   
         $imageName = time().'.'.$req->image->extension();  
