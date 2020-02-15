@@ -97,7 +97,7 @@ class SingleFormController extends Controller
             "path"=>$photos->path
        );
 
-       print_r($data);
+      
         
         // echo $photos->id;
 
